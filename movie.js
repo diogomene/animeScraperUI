@@ -35,7 +35,7 @@ function show(results){
                  </div>
                  <div class="info-anime">
                     <div class="img-anime">
-                        <a href="movie.html?url=`+e.link+`">
+                        <a href="video.html?url=`+e.link+`">
                             <img src="`+e.img+`">
                         </a>
                     </div>
