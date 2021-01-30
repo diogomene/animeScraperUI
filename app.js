@@ -20,16 +20,24 @@ function getAnime(searchTerm){
 
 function show(results){
     results.forEach(movie=> {
-        const ul=document.createElement('ul')
-        const li=document.createElement('li');
-        const img=document.createElement('img');
-        img.src=movie.poster;
-        const a = document.createElement('a');
-        a.href = 'movie.html?url='+movie.url;
-        a.textContent=movie.title;
-        li.appendChild(a);
-        li.appendChild(img);
-        ul.appendChild(li)
-        resultList.appendChild(ul); 
+        resultList.innerHTML+=`
+            <div class="anime">
+
+                <div class="title-anime">
+                    <a href="movie.html?url=`+movie.url+`">
+                        <p>`+movie.title+`</p>
+                    </a>
+                 </div>
+                 <div class="info-anime">
+                    <div class="img-anime">
+                        <a href="movie.html?url=`+movie.url+`">
+                            <img src="`+movie.poster+`">
+                        </a>
+                    </div>
+                 </div>
+
+            </div>
+
+        `
     });    
 }

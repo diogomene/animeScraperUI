@@ -17,25 +17,35 @@ function getAnime(searchTerm){
 }
 
 function show(results){
-    console.log(results)
+    console.log(typeof results+results)
     results.forEach((movie,i)=> {
-        const h3 = document.createElement('h2')
-        h3.textContent="Temporada "+i+1;
-        const ul = document.createElement('ul');
-        ul.classList.add('season');
-        info.appendChild(h3);
-        info.appendChild(ul);
+        info.innerHTML+=`
+            <div class=season-title><h3>Temporada `+(parseInt(i,10)+1)+`</h3></div>
+        `
+        console.log(typeof movie+movie)
         console.log(movie)
         movie.forEach((e,i)=>{
-            const li=document.createElement('li');
-            const img=document.createElement('img');
-            const a=document.createElement('a')
-            img.src=e.img;
-            a.href="video.html?url="+e.link;
-            a.textContent=e.num;
-            li.appendChild(a);
-            li.appendChild(img);
-            ul.appendChild(li)
+            info.innerHTML+=`
+            <div class="anime">
+
+                <div class="title-anime">
+                    <a href="movie.html?url=`+e.link+`">
+                        <p>`+e.num+`</p>
+                    </a>
+                 </div>
+                 <div class="info-anime">
+                    <div class="img-anime">
+                        <a href="movie.html?url=`+e.link+`">
+                            <img src="`+e.img+`">
+                        </a>
+                    </div>
+                 </div>
+
+            </div>
+
+        `
+        console.log(e)
+
         })
         // const li=document.createElement('li');
         // const img=document.createElement('img');
