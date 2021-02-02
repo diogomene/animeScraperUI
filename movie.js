@@ -29,8 +29,8 @@ function show(results){
             <div class="anime">
 
                 <div class="title-anime">
-                    <a href="movie.html?url=`+e.link+`">
-                        `+e.num+`
+                    <a href="video.html?url=`+e.link+`">
+                        <p>`+e.num+`</p>
                     </a>
                  </div>
                  <div class="info-anime">
