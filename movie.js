@@ -5,26 +5,26 @@ const info = document.querySelector('.info')
 console.log(animeUrl)
 search();
 function search(){
-    console.log("foi!")
-
     const searchTerm=animeUrl;
     getAnime(searchTerm).then(show)
 }
 
 function getAnime(searchTerm){
     return fetch(`${apiURL}/anime?url=${searchTerm}`).then(
-        res=>res.json())
+        res=>res.json()
+    )
 }
 
 function show(results){
-    console.log(typeof results+results)
-    results.forEach((movie,i)=> {
-        info.innerHTML+=`
-            <div class=season-title><h3>Temporada `+(parseInt(i,10)+1)+`</h3></div>
-        `
-        console.log(typeof movie+movie)
-        console.log(movie)
-        movie.forEach((e,i)=>{
+    let temp=1;
+    results.forEach((e,i)=> {
+      
+            if(e.num=="Episodio 1"){
+                info.innerHTML+=`
+                <div class=season-title><h3>Temporada `+ temp+`</h3></div>
+            `;
+            temp++;
+            }
             info.innerHTML+=`
             <div class="anime">
 
@@ -46,7 +46,7 @@ function show(results){
         `
         console.log(e)
 
-        })
+
         // const li=document.createElement('li');
         // const img=document.createElement('img');
         // img.src=movie.poster;
