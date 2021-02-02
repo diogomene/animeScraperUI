@@ -30,7 +30,7 @@ function show(results){
 
                 <div class="title-anime">
                     <a href="movie.html?url=`+e.link+`">
-                        <p>`+e.num+`</p>
+                        `+e.num+`
                     </a>
                  </div>
                  <div class="info-anime">
